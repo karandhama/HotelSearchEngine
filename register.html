@@ -1,0 +1,268 @@
+<html>
+<head>
+    <title>Register Hotel</title>
+    <link rel="stylesheet" type="text/css" href="design/register_hotel.css">
+    <link href="https://fonts.googleapis.com/css?family=Padauk" rel="stylesheet">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascript/states.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+<body ng-app="">
+    <div class="container">
+        <div id="header">
+            <h2>Hotel Registration</h2>
+        </div>
+        <div id="main">
+            <div id="register_form">
+                <form name="form">
+                <table id="register_table">
+                    <tr>
+                        <th><label id="label">Name of the Hotel : </label></th>
+                        <th><input type="text" name="hotel_id" id="hotel_id" value="" hidden></th>
+                        <th><input type="number" name="count" id="count" value="" hidden></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" name="name" id="name" ng-model="name" required></td>
+                        <td><div ng-show="form.name.$error.required"><i class="fas fa-times" style="color:red;margin-left:50%"></i></div></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><label id="label">Address : </label></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea name="address" id="address" ng-model="address" required></textarea></td>
+                        <td><div ng-show="form.address.$error.required"><i class="fas fa-times" style="color:red;margin-left:50%"></i></div></td>
+                    </tr>
+                    <tr>
+                        <th><label>State : </label></th>
+                        <th><label>Country : </label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="state" name="state">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="country" name="country">
+                                <option>India</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label>City : </label></th>
+                        <th><label>Pincode : </label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="city" name="city">
+                            </select>
+                        </td>
+                        <td><input type="number" name="pincode" id="pincode" ng-model="pincode" required></td>
+                        <td><div ng-show="form.pincode.$error.required"><i class="fas fa-times" style="color:red;margin-left:50%"></i></div></td>
+                    </tr>
+                    <tr>
+                        <th><label>Star Category : </label></th>
+                        <th><label>Mobile Number : </label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="star" id="star">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="mobile" id="mobile" ng-model="mobile" required></td>
+                        <td><div ng-show="form.mobile.$error.required"><i class="fas fa-times" style="color:red;margin-left:50%"></i></div></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><hr id="ruler"></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="text-align:center;font-size:20px">Rooms Available</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="roomtype" id="singleroom" value="Single Room" checked>Single Rooms<br/>
+                        </th>
+                        <td>
+                            <input type="number" name="single_value" id="single_value" placeholder="Single rooms rate per day" ng-model="single_value" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><input type="checkbox" name="roomtype" id="doubleroom" value="Double Room">Double Rooms<br/></th>
+                        <td><input type="text" name="double_value" id="double_value" placeholder="Double rooms rate per day" ng-model="double_value" required hidden></td>
+                    </tr>
+                    <tr>
+                        <th><input type="checkbox" name="roomtype" id="familyroom" value="Family Room">Family Rooms</th>
+                        <td><input type="text" name="family_value" id="family_value" placeholder="Family rooms rate per day" ng-model="family_value" required hidden></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><hr id="ruler"></th>
+                    </tr>
+                    <tr>
+                        <th><label>Hotel Description : </label></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea id="description" name="description" ng-model="description" required></textarea></td>
+                        <td><div ng-show="form.description.$error.required"><i class="fas fa-times" style="color:red;margin-left:50%"></i></div></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><hr id="ruler"></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="text-align:center;font-size:20px">Upload Images</th>
+                    </tr>
+                    <tr>
+                        <th><label id="label">Exterier View : </label></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="file" name="exterior" id="exterior" style="padding-top:1%;"></td>
+                    </tr>
+                    <tr>
+                        <th><label id="label">Room Type-1 : </label></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="file" name="room_1" id="room_1" style="padding-top:1%;"></td>
+                    </tr>
+                    <tr>
+                        <th><label id="label">Room Type-2 : </label></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="file" name="room_2" id="room_2" style="padding-top:1%;"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <button id="register_button" name="register_button">Register Hotel</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><input type="hidden" name="img1" id="img1"></th>
+                        <th><input type="hidden" name="img2" id="img2"></th>
+                        <th><input type="hidden" name="img3" id="img3"></th>
+                    </tr>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var count = 0;
+        $("#count").val(count);
+        $("#exterior").on('change',function(){
+            var name = document.getElementById("exterior").files[0].name;
+            var form_data = new FormData();
+            var ext = name.split('.').pop().toLowerCase();
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("exterior").files[0]);
+            var f = document.getElementById("exterior").files[0];
+            form_data.append("exterior", f);
+            $.ajax ({
+                url:"backend/add_images.php?count="+count,
+                method:"POST",
+                data:form_data,
+                contentType:false,
+                processData:false,
+                success: function(data) {
+                    var str = data.split(" ");
+                    var data1 = str[0];
+                    var data2 = str[1];
+                    $("#hotel_id").val(data1);
+                    $("#img1").val(data2);
+                    count++;
+                    $("#count").val(count);
+                },
+                error: function (error) {
+                    alert(error.status);
+                }
+            });
+        });
+        $("#room_1").on('change',function(){
+            var hotel_id = $("#hotel_id").val();
+            var name = document.getElementById("room_1").files[0].name;
+            var form_data = new FormData();
+            var ext = name.split('.').pop().toLowerCase();
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("room_1").files[0]);
+            var f = document.getElementById("room_1").files[0];
+            form_data.append("room_1", f);
+            $.ajax ({
+                url:"backend/add_images.php?count="+count+"&hotel_id="+hotel_id,
+                method:"POST",
+                data:form_data,
+                contentType:false,
+                processData:false,
+                success: function(data) {
+                    count++;
+                    $("#count").val(count);
+                    $("#img2").val(data);
+                },
+                error: function (error) {
+                    alert(error.status);
+                }
+            });
+        });
+        $("#room_2").on('change',function(){
+            var hotel_id = $("#hotel_id").val();
+            var name = document.getElementById("room_2").files[0].name;
+            var form_data = new FormData();
+            var ext = name.split('.').pop().toLowerCase();
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("room_2").files[0]);
+            var f = document.getElementById("room_2").files[0];
+            form_data.append("room_2", f);
+            $.ajax ({
+                url:"backend/add_images.php?count="+count+"&hotel_id="+hotel_id,
+                method:"POST",
+                data:form_data,
+                contentType:false,
+                processData:false,
+                success: function(data) {
+                    count++;
+                    $("#count").val(count);
+                    $("#img3").val(data);
+                },
+                error: function (error) {
+                    alert(error.status);
+                }
+            });
+        });
+        $("#register_button").click(function() {
+            var name = $("#name").val();
+            var address = $("#address").val();
+            var state = $("#state").val();
+            var country = $("#country").val();
+            var city = $("#city").val();
+            var pincode = $("#pincode").val();
+            var mobile = $("#mobile").val();
+            var star = $("#star").val();
+            var single_value = $("#single_value").val();
+            var double_value = $("#double_value").val();
+            var family_value = $("#family_value").val();
+            var description = $("#description").val();
+            var img1 = $("#img1").val();
+            var img2 = $("#img2").val();
+            var img3 = $("#img3").val();
+            var hotel_id = $("#hotel_id").val();
+
+            alert(img2);
+            $.ajax({
+                url: "backend/register_hotel.php",
+                method: "POST",
+                data: {name:name,address:address,state:state,country:country,city:city,pincode:pincode,mobile:mobile,star:star,single_value:single_value,
+                    double_value:double_value,family_value:family_value,description:description,img1:img1,img2:img2,img3:img3,hotel_id:hotel_id},
+                success: function(data) {
+                    alert(data);
+                },
+                error: function(error) {
+                    alert("error; " + error.status);
+                }
+            });
+        });
+    });
+</script>
+</html>
